@@ -11,7 +11,7 @@ const initState = {
   token: localStorage.getItem("token"),
   user: null,
   isAuth: false,
-  isLoading: false,
+  isLoading: true,
   msg: null,
 };
 
@@ -20,8 +20,15 @@ export default function (state = initState, { type, payload }) {
     case SET_LOADING:
       return { ...state, isLoading: true };
     case LOGOUT:
+    case AUTH_ERROR:
       localStorage.removeItem("token");
-      return { ...state, user: null, token: null, isAuth: false };
+      return {
+        ...state,
+        user: null,
+        token: null,
+        isAuth: false,
+        isLoading: false,
+      };
     case LOGIN_USER:
     case REGISTER_USER:
       localStorage.setItem("token", payload.token);
