@@ -11,6 +11,8 @@ import { getAuthUser } from "./js/actions/authActions";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
+// this is a comment 
+
 function App() {
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.authReducer);
